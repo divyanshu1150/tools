@@ -1,0 +1,41 @@
+{% set title = "RD Calculator - Recurring Deposit Maturity" %}
+{% set description = "Free RD Calculator to estimate your recurring deposit maturity value with monthly investments." %}
+{% set year = 2025 %}
+{% include "partials/header.html" %}
+
+<h2 class="mb-4">📅 Recurring Deposit (RD) Calculator</h2>
+<form method="POST" class="card p-4 bg-white shadow-sm">
+  <div class="mb-3">
+    <label class="form-label">Monthly Deposit (₹)</label>
+    <input type="number" name="monthly_investment" class="form-control" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Annual Interest Rate (%)</label>
+    <input type="number" name="annual_rate" class="form-control" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Deposit Period (Years)</label>
+    <input type="number" name="years" class="form-control" required>
+  </div>
+  <button class="btn btn-primary">Calculate</button>
+</form>
+
+{% if result %}
+<div class="alert alert-success mt-4">
+  <h5>Maturity Amount: ₹{{ result }}</h5>
+</div>
+{% endif %}
+
+<a href="/" class="btn btn-link mt-4">← Back to Home</a>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FinancialProduct",
+  "name": "RD Calculator",
+  "description": "Estimate the maturity value of your recurring deposit with monthly contributions.",
+  "url": "{{ request.url }}"
+}
+</script>
+
+{% include "partials/footer.html" %}

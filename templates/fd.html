@@ -1,0 +1,50 @@
+{% set title = "FD Calculator - Fixed Deposit Returns" %}
+{% set description = "Free FD Calculator to calculate your fixed deposit maturity amount with compound interest." %}
+{% set year = 2025 %}
+{% include "partials/header.html" %}
+
+<h2 class="mb-4">🏦 Fixed Deposit (FD) Calculator</h2>
+<form method="POST" class="card p-4 bg-white shadow-sm">
+  <div class="mb-3">
+    <label class="form-label">Principal Amount (₹)</label>
+    <input type="number" name="principal" class="form-control" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Annual Interest Rate (%)</label>
+    <input type="number" name="rate" class="form-control" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Time Period (Years)</label>
+    <input type="number" name="years" class="form-control" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Compounding Frequency</label>
+    <select name="frequency" class="form-select">
+      <option value="1">Yearly</option>
+      <option value="2">Half-Yearly</option>
+      <option value="4">Quarterly</option>
+      <option value="12">Monthly</option>
+    </select>
+  </div>
+  <button class="btn btn-primary">Calculate</button>
+</form>
+
+{% if result %}
+<div class="alert alert-success mt-4">
+  <h5>Maturity Amount: ₹{{ result }}</h5>
+</div>
+{% endif %}
+
+<a href="/" class="btn btn-link mt-4">← Back to Home</a>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FinancialProduct",
+  "name": "FD Calculator",
+  "description": "Calculate fixed deposit maturity value using compound interest.",
+  "url": "{{ request.url }}"
+}
+</script>
+
+{% include "partials/footer.html" %}

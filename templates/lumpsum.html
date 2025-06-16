@@ -1,0 +1,41 @@
+{% set title = "Lumpsum Calculator - Investment Growth" %}
+{% set description = "Use this free Lumpsum Calculator to find out how much your one-time investment grows over time." %}
+{% set year = 2025 %}
+{% include "partials/header.html" %}
+
+<h2 class="mb-4">💼 Lumpsum Investment Calculator</h2>
+<form method="POST" class="card p-4 bg-white shadow-sm">
+  <div class="mb-3">
+    <label class="form-label">Investment Amount (₹)</label>
+    <input type="number" name="investment" class="form-control" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Annual Interest Rate (%)</label>
+    <input type="number" name="rate" class="form-control" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Time Period (Years)</label>
+    <input type="number" name="years" class="form-control" required>
+  </div>
+  <button class="btn btn-primary">Calculate</button>
+</form>
+
+{% if result %}
+<div class="alert alert-success mt-4">
+  <h5>Future Value: ₹{{ result }}</h5>
+</div>
+{% endif %}
+
+<a href="/" class="btn btn-link mt-4">← Back to Home</a>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FinancialProduct",
+  "name": "Lumpsum Calculator",
+  "description": "Calculate the future value of a one-time investment.",
+  "url": "{{ request.url }}"
+}
+</script>
+
+{% include "partials/footer.html" %}

@@ -1,0 +1,41 @@
+{% set title = "EMI Calculator - Loan Monthly Payment" %}
+{% set description = "Free EMI Calculator to calculate your monthly loan payment with interest. Simple, fast and accurate." %}
+{% set year = 2025 %}
+{% include "partials/header.html" %}
+
+<h2 class="mb-4">💸 EMI Calculator</h2>
+<form method="POST" class="card p-4 bg-white shadow-sm">
+  <div class="mb-3">
+    <label class="form-label">Loan Amount (₹)</label>
+    <input type="number" name="loan_amount" class="form-control" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Annual Interest Rate (%)</label>
+    <input type="number" name="annual_rate" class="form-control" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Loan Tenure (Years)</label>
+    <input type="number" name="years" class="form-control" required>
+  </div>
+  <button class="btn btn-primary">Calculate</button>
+</form>
+
+{% if result %}
+<div class="alert alert-success mt-4">
+  <h5>💰 Monthly EMI: ₹{{ result }}</h5>
+</div>
+{% endif %}
+
+<a href="/" class="btn btn-link mt-4">← Back to Home</a>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FinancialProduct",
+  "name": "EMI Calculator",
+  "description": "Calculate your monthly EMI based on loan amount, interest rate and tenure.",
+  "url": "{{ request.url }}"
+}
+</script>
+
+{% include "partials/footer.html" %}

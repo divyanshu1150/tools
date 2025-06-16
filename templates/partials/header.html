@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ title if title else 'Finance Calculator Tools' }}</title>
+  <meta name="description" content="{{ description if description else 'Free financial tools for SIP, EMI, FD, RD and Lumpsum calculations.' }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="{{ title if title else 'Finance Calculator Tools' }}">
+  <meta property="og:description" content="{{ description if description else 'Free financial tools to calculate EMI, SIP, FD, RD and more.' }}">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{{ title if title else 'Finance Tools' }}">
+  <meta name="twitter:description" content="{{ description if description else 'Free financial calculators for investment and loan planning.' }}">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="p-4 bg-light">
+  <div class="container">
+    <header class="mb-4">
+      <h1 class="mb-3 text-primary">💰 Finance Calculator Tools</h1>
+      <nav class="mb-3">
+        <a href="/" class="me-3">Home</a>
+        <a href="/sip" class="me-3">SIP</a>
+        <a href="/emi" class="me-3">EMI</a>
+        <a href="/fd" class="me-3">FD</a>
+        <a href="/rd" class="me-3">RD</a>
+        <a href="/lumpsum">Lumpsum</a>
+      </nav>
+    </header>
