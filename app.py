@@ -59,4 +59,5 @@ def lumpsum_calc():
     return render_template('lumpsum.html', result=result)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    from os import getenv
+    app.run(debug=True, host='0.0.0.0', port=int(getenv('PORT', 5000)))
